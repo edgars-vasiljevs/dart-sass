@@ -322,6 +322,10 @@ class _Watcher {
       if (importChanged) changed.add(node);
     }
 
+    for (var node in changed) {
+      _graph.reload(node.canonicalUrl);
+    }
+
     return await _recompileDownstream(changed);
   }
 
